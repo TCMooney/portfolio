@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
 import {
-  Swtich,
+  Switch,
   Route,
-  Router
+  BrowserRouter as Router
 } from 'react-router-dom';
-import history from '../history';
+
+import NavContainer from './navigation/NavContainer';
+import Home from './pages/Home';
 
 export default class App extends Component {
   render() {
     return (
       <div className='app'>
-        <h1>DevCamp React Starter</h1>
-        <h2>React Bootstrap</h2>
+        <Router>
+          <div>
+            <NavContainer />
+          </div>
+          <Route exact path='/' component={Home} />
+        </Router>
       </div>
     );
   }
