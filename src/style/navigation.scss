@@ -1,0 +1,34 @@
+.nav-container {
+  font-family: "Shadows Into Light", cursive;
+  display: flex;
+  flex-direction: column;
+  .nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-separator {
+    border-top: 1px $off-white solid;
+    height: 3px;
+    width: 93vw;
+    align-self: center;
+  }
+}
+.nav-left-side {
+  display: flex;
+  font-size: 1.5rem;
+  .nav-link {
+    color: $off-white;
+    padding-bottom: 0;
+    height: 48px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid transparent;
+    @include base-link;
+  }
+}
+
+.nav-right-side {
+  font-size: 1.5rem;
+  padding-right: 20px;
+  color: $off-white;
+}

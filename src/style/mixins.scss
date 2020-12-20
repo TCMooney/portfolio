@@ -1,0 +1,8 @@
+@mixin base-link {
+  cursor: pointer;
+  transition: all 0.8s ease-in-out;
+  &:hover {
+    color: gray;
+    border-bottom: 1px gray solid;
+  }
+}
