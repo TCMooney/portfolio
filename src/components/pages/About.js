@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-export default function About() {
+export default function () {
   return (
-    <div>
-      About
+    <div className='about-wrapper'>
+      <p className='about'>
+        Hi, I'm Tom. I'm a full stack web developer based in Hanover, PA. I'm experienced in JavaScript, React, NodeJS and an assortment of other technologies.When I'm not writing code, you can find me at the skatepark working on some new tricks or playing guitar working on some new riffs.
+                </p>
     </div>
   )
 }
+
