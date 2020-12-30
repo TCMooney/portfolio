@@ -1,4 +1,6 @@
 .about-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   .about {
     padding: 50px 100px;
   }

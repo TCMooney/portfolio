@@ -4,7 +4,7 @@ import axios from 'axios';
 import AuthReducer from '../reducers/AuthReducer';
 
 const initialState = {
-  isAuthenticated: 'AUTHENTICATED',
+  isAuthenticated: 'NOT_AUTHENTICATED',
   authError: ''
 }
 
@@ -13,9 +13,9 @@ export const AuthContext = createContext(initialState);
 export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AuthReducer, initialState);
 
-  async function logIn(fields, success) {
+  async function logIn(client, success) {
     try {
-      const res = await axios.post('https://api.devcamp.space/sessions', fields, { withCredentials: true })
+      const res = await axios.post('https://api.devcamp.space/sessions', client, { withCredentials: true })
 
       dispatch({
         type: 'AUTHENTICATE_USER',
@@ -26,15 +26,15 @@ export const AuthProvider = ({ children }) => {
     } catch (err) {
       dispatch({
         type: 'AUTH_ERROR',
-        payload: res.data
+        payload: err.data
       })
     }
   }
 
   return (
     <AuthContext.Provider value={{
-      isAuthenticated: state.isAuthenticated
-
+      isAuthenticated: state.isAuthenticated,
+      logIn
     }}>
       {children}
     </AuthContext.Provider>
